@@ -1,0 +1,30 @@
+@extends('layouts.app')
+@section('title', 'Edit Fee Structure')
+@section('content')
+<div class="page-header">
+    <div><h4 class="fw-semibold mb-1"><i class="fas fa-edit me-2"></i>Edit Fee Structure</h4>
+        <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li><li class="breadcrumb-item"><a href="{{ route('fees.index') }}">Fees</a></li><li class="breadcrumb-item"><a href="{{ route('fees.show',1) }}">Tuition Fee</a></li><li class="breadcrumb-item active">Edit</li></ol></nav>
+    </div>
+</div>
+<form>
+    @csrf @method('PUT')
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-4"><x-form-input name="fee_head" label="Fee Head" value="Tuition Fee" /></div>
+                <div class="col-md-4"><x-form-select name="class" label="Class" :options="['10'=>'Grade 10']" value="10" /></div>
+                <div class="col-md-4"><x-form-select name="academic_year" label="Year" :options="['2026'=>'2025-2026']" value="2026" /></div>
+                <div class="col-md-3"><x-form-input name="amount" label="Amount ($)" type="number" value="2500" /></div>
+                <div class="col-md-3"><x-form-select name="frequency" label="Frequency" :options="['monthly'=>'Monthly','quarterly'=>'Quarterly','yearly'=>'Yearly']" value="monthly" /></div>
+                <div class="col-md-3"><x-form-input name="due_day" label="Due Day" type="number" value="15" /></div>
+                <div class="col-md-3"><x-form-input name="late_fee" label="Late Fee ($)" type="number" value="25" /></div>
+                <div class="col-12"><x-form-textarea name="description" label="Description" rows="2">Standard tuition fee</x-form-textarea></div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex gap-2 mt-4">
+        <button type="submit" class="btn btn-primary"><i class="fas fa-save me-1"></i>Update</button>
+        <a href="{{ route('fees.show',1) }}" class="btn btn-outline-secondary"><i class="fas fa-times me-1"></i>Cancel</a>
+    </div>
+</form>
+@endsection

@@ -1,0 +1,100 @@
+﻿@extends('layouts.app')
+@section('title', 'Homework')
+@section('content')
+<div class="page-header">
+    <div><h4 class="fw-semibold mb-1"><i class="fas fa-home me-2"></i>Homework</h4>
+        <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li><li class="breadcrumb-item"><a href="{{ route('academic.index') }}">Academic</a></li><li class="breadcrumb-item active">Homework</li></ol></nav>
+    </div>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#homeworkModal" onclick="resetHomeworkForm()"><i class="fas fa-plus me-1"></i>Add Homework</button>
+</div>
+
+<div class="card shadow-sm border-0 mb-3">
+    <div class="card-body py-2">
+        <a class="text-decoration-none fw-semibold small" data-bs-toggle="collapse" href="#hwSearchCollapse" role="button">
+            <i class="fas fa-search me-1"></i>Advanced Search <i class="fas fa-chevron-down ms-1"></i>
+        </a>
+        <div class="collapse mt-2" id="hwSearchCollapse">
+            <form method="GET" action="{{ route('academic.homework') }}" class="row g-2">
+                <div class="col-md-3"><input type="text" name="search" class="form-control form-control-sm" placeholder="Search title, subject, class, teacher..." value="{{ request('search') }}"></div>
+                <div class="col-md-2"><select name="class_id" class="form-select form-select-sm"><option value="">All Classes</option>@foreach($classes as $c)<option value="{{ $c->id }}" {{ request('class_id')==$c->id?'selected':'' }}>{{ $c->name }}</option>@endforeach</select></div>
+                <div class="col-md-2"><select name="subject_id" class="form-select form-select-sm"><option value="">All Subjects</option>@foreach($subjects as $s)<option value="{{ $s->id }}" {{ request('subject_id')==$s->id?'selected':'' }}>{{ $s->name }}</option>@endforeach</select></div>
+                <div class="col-md-2"><select name="teacher_id" class="form-select form-select-sm"><option value="">All Teachers</option>@foreach($teachers as $t)<option value="{{ $t->id }}" {{ request('teacher_id')==$t->id?'selected':'' }}>{{ $t->name }}</option>@endforeach</select></div>
+                <div class="col-md-1"><input type="date" name="date_from" class="form-control form-control-sm" value="{{ request('date_from') }}" title="Due date from"></div>
+                <div class="col-md-1"><input type="date" name="date_to" class="form-control form-control-sm" value="{{ request('date_to') }}" title="Due date to"></div>
+                <div class="col-md-12 mt-2"><button class="btn btn-sm btn-primary me-1" type="submit"><i class="fas fa-search me-1"></i>Filter</button><a href="{{ route('academic.homework') }}" class="btn btn-sm btn-outline-secondary"><i class="fas fa-times me-1"></i>Clear</a></div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body p-0">
+        <x-table :headers="['#','Title','Subject','Class','Teacher','Due Date','Actions']">
+            @foreach($homeworks as $h)
+            <tr>
+                <td>{{ $loop->iteration + ($homeworks->currentPage()-1)*$homeworks->perPage() }}</td>
+                <td class="fw-semibold">{{ $h->title ?? 'Untitled' }}</td>
+                <td>{{ $h->subject_name ?? '-' }}</td>
+                <td>{{ $h->class_name ?? '-' }}</td>
+                <td>{{ $h->teacher_name ?? '-' }}</td>
+                <td>{{ $h->due_date ? \Carbon\Carbon::parse($h->due_date)->format('M d, Y') : '-' }}</td>
+                <td>
+                    <div class="table-actions">
+                        <button class="btn btn-sm btn-outline-info edit-homework-btn"
+                            data-id="{{ $h->id }}" data-title="{{ $h->title }}" data-class-id="{{ $h->class_id }}"
+                            data-section-id="{{ $h->section_id }}" data-subject-id="{{ $h->subject_id }}"
+                            data-teacher-id="{{ $h->teacher_id }}" data-description="{{ $h->description }}"
+                            data-due-date="{{ $h->due_date }}"><i class="fas fa-edit"></i></button>
+                        <form method="POST" action="{{ route('academic.homework.destroy', $h->id) }}" class="d-inline" onsubmit="return confirm('Delete?')">@csrf @method('DELETE')<button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button></form>
+                    </div>
+                </td>
+            </tr>
+            @endforeach
+            @if($homeworks->isEmpty())
+            <tr><td colspan="7" class="text-center text-muted py-4">No homework found</td></tr>
+            @endif
+        </x-table>
+    </div>
+</div>
+<x-pagination :paginator="$homeworks" />
+
+<x-modal id="homeworkModal" title="Add Homework">
+    <form method="POST" action="{{ route('academic.homework.store') }}" id="homeworkForm">
+        @csrf
+        <input type="hidden" name="_method" id="hwMethodField" value="POST">
+        <input type="hidden" name="hw_id" id="hwId">
+        <div class="row g-2">
+            <div class="col-md-12"><x-form-input name="title" label="Title" required placeholder="Homework title" /></div>
+            <div class="col-md-4"><x-form-select name="class_id" label="Class" :options="$classes->pluck('name','id')->toArray()" required /></div>
+            <div class="col-md-4"><x-form-select name="section_id" label="Section" :options="$sections->pluck('name','id')->toArray()" placeholder="All" /></div>
+            <div class="col-md-4"><x-form-select name="subject_id" label="Subject" :options="$subjects->pluck('name','id')->toArray()" required /></div>
+            <div class="col-md-6"><x-form-select name="teacher_id" label="Teacher" :options="$teachers->pluck('name','id')->toArray()" required /></div>
+            <div class="col-md-6"><x-form-input name="due_date" label="Due Date" type="date" required /></div>
+            <div class="col-md-12"><x-form-input name="description" label="Description" placeholder="Homework details" /></div>
+        </div>
+    </form>
+    <x-slot:footer><button class="btn btn-primary" type="submit" form="homeworkForm">Save</button><button class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button></x-slot:footer>
+</x-modal>
+
+@push('scripts')
+<script>
+function resetHomeworkForm() {
+    $('#homeworkModal .modal-title').text('Add Homework');
+    $('#homeworkForm').attr('action', '{{ route('academic.homework.store') }}');
+    $('#hwMethodField').val('POST'); $('#homeworkForm')[0].reset(); $('#hwId').val('');
+}
+$(document).on('click', '.edit-homework-btn', function() {
+    var btn = $(this);
+    $('#homeworkModal .modal-title').text('Edit Homework');
+    $('#homeworkForm').attr('action', '{{ url('academic/homework') }}/' + btn.data('id'));
+    $('#hwMethodField').val('PUT'); $('#hwId').val(btn.data('id'));
+    $('#title').val(btn.data('title')); $('#class_id').val(btn.data('class-id'));
+    $('#section_id').val(btn.data('section-id')); $('#subject_id').val(btn.data('subject-id'));
+    $('#teacher_id').val(btn.data('teacher-id')); $('#description').val(btn.data('description'));
+    $('#due_date').val(btn.data('dueDate'));
+    var modal = new bootstrap.Modal('#homeworkModal');
+    modal.show();
+});
+</script>
+@endpush
+@endsection
