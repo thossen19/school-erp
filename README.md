@@ -26,36 +26,322 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- SCHOOL ERP SYSTEM - FEATURES LIST
+===================================================
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. CORE / SYSTEM MODULE
+   - Multi-Tenant School Management
+   - Branch Management
+   - Academic Year Management
+   - User Management (CRUD)
+   - Role & Permission Management (Spatie RBAC)
+   - User Profile Management
+   - Authentication (Login, Register, Email Verification, Password Reset)
+   - OTP Management
+   - Activity Logging (Spatie Activitylog)
+   - Notification System (In-App, Real-time)
+   - Database Backup & Restore
+   - Global Search
+   - System Settings
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+2. STUDENT MANAGEMENT
+   - Student Registration (Personal Details, Photo, Roll Number)
+   - Student Documents
+   - Student Discipline Records
+   - Student Awards & Achievements
+   - Student Houses (e.g. Red/Blue/Green/Yellow)
+   - Student Groups & Membership
+   - Student Promotions (Bulk)
+   - Student Transfers
+   - Student Academic History
+   - Student Timeline
+   - Parent/Guardian Management
+   - Student Portal
 
-## Agentic Development
+3. ADMISSION MANAGEMENT
+   - Online Admission Portal
+   - Admission Enquiries & Follow-up
+   - Application Forms Management
+   - Lead Management
+   - Entrance Exams
+   - Entrance Exam Results
+   - Merit List Generation
+   - Waiting Lists
+   - Interview Scheduling
+   - Admission Workflow & Approval
+   - Document Upload
+   - Student ID Generation
+   - Parent Registration
+   - Admission Fee Collection
+   - Admission Reports
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+4. ACADEMIC MANAGEMENT
+   - Class Management
+   - Section Management
+   - Subject Management
+   - Class-Subject Assignment
+   - Teacher-Subject Assignment
+   - Lesson Plans
+   - Assignments (Create, Submit, Grade)
+   - Homework
+   - Study Materials (Upload & Share)
+   - Teacher Diary
+   - Curriculum Management
 
-```bash
-composer require laravel/boost --dev
+5. TIMETABLE MANAGEMENT
+   - Timetable Creation
+   - Timetable Periods
+   - Timetable Allocations (Subject/Teacher to Periods)
+   - Teacher-wise Schedule
+   - Room Allocation & Availability
+   - Conflict Detection
+   - AI Timetable Generator
+   - Exam Timetable
+   - Substitution Requests (Approve/Reject)
 
-php artisan boost:install
-```
+6. ATTENDANCE MANAGEMENT
+   - Daily Attendance
+   - Period-wise Attendance
+   - Subject-wise Attendance
+   - Attendance Settings (Manual, Biometric, RFID, UHF, Face Recognition)
+   - Bulk Attendance
+   - RFID-based Attendance
+   - Biometric Attendance
+   - Face Recognition Attendance
+   - Attendance Corrections
+   - Late Entry Tracking
+   - Parent Notifications (Auto-alerts)
+   - Attendance Analytics
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+7. LEAVE MANAGEMENT
+   - Leave Types
+   - Leave Policies
+   - Leave Requests (Apply, Approve, Reject)
+   - Leave Balances
+   - Leave Encashments
+   - Leave Approval Workflows (Multi-level)
+   - Holiday Calendar
+   - Leave Reports
 
-## Contributing
+8. EXAMINATION & ASSESSMENT
+   - Exam Types
+   - Exam Management
+   - Exam Scheduling
+   - Exam Results (Marks, Grades, Grade Points)
+   - Grading Systems (A-F, Percentages, GPA)
+   - Grade Ranges
+   - Report Cards / Grade Cards
+   - Rankings
+   - Continuous Assessment
+   - Practical Marks
+   - Online Examinations
+   - AI Evaluations
+   - Performance Analytics
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+9. FEE MANAGEMENT
+   - Fee Categories
+   - Fee Structures
+   - Fee Installments
+   - Fee Discounts
+   - Fee Concessions
+   - Fee Collections (Receipts, Multiple Modes)
+   - Online Payment
+   - Fee Due Tracking
+   - Auto Reminders (Email/SMS)
+   - Fine Management
+   - Payment Reconciliation
+   - Receipt Generation (Print/Email)
+   - Scholarships
+   - Financial Reports
 
-## Code of Conduct
+10. HR / EMPLOYEE MANAGEMENT
+    - Employee Profiles
+    - Departments
+    - Designations
+    - Employee Documents
+    - Employee Contracts
+    - Employee Evaluations
+    - Employee Promotions
+    - Employee Transfers
+    - Employee Directory
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+11. PAYROLL MANAGEMENT
+    - Salary Structures
+    - Salary Components (Earnings & Deductions)
+    - Payroll Processing (Monthly)
+    - Loan Requests & Installments
+    - Overtime Records
+    - Payroll Taxes
+    - Payroll Bonuses
+    - Payslip Generation (PDF)
+    - Tally Export
+    - Payroll Reports
 
-## Security Vulnerabilities
+12. RECRUITMENT
+    - Job Posts
+    - Job Applications
+    - Application Shortlisting
+    - Interview Scheduling
+    - Offer Management
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+13. FRONT OFFICE / RECEPTION
+    - Visitor Management (Check-in/Check-out)
+    - Enquiries
+    - Call Logs
+    - Appointments
+    - Complaints
 
-## License
+14. TRANSPORT MANAGEMENT
+    - Routes
+    - Vehicles
+    - Drivers
+    - Route Stops
+    - Student Allocations
+    - Transport Fees
+    - GPS Tracking
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+15. LIBRARY MANAGEMENT
+    - Book Categories
+    - Books (ISBN, Author, Publisher, Barcode, Shelf/Rack)
+    - Book Issues & Returns
+    - Library Members
+    - Library Fines
+    - E-Books
+    - Barcode Scanning
+    - Library Reports
+
+16. HOSTEL MANAGEMENT
+    - Hostels (Type, Capacity, Warden)
+    - Hostel Rooms
+    - Hostel Beds
+    - Hostel Allocations (Check-in/Check-out)
+    - Hostel Fees
+    - Hostel Visitors
+    - Hostel Leave (Outpass/Gate Pass)
+    - Occupancy Reports
+
+17. INVENTORY / STORE MANAGEMENT
+    - Item Categories
+    - Items (Stock, Pricing)
+    - Stock Movements (In/Out)
+    - Stock Audits
+    - Purchase Orders
+    - Vendors
+    - Stock Transfers
+    - Barcode Management
+    - Inventory Reports
+
+18. ACCOUNTING / FINANCE
+    - Chart of Accounts
+    - Journal Entries
+    - General Ledger
+    - Accounts Payable
+    - Accounts Receivable
+    - Bank Reconciliation
+    - Budget Management
+    - Trial Balance
+    - Cash Book
+    - Financial Statements (P&L, Balance Sheet)
+    - Multi-Currency & Exchange Rates
+    - Tally Export
+
+19. ASSET MANAGEMENT
+    - Asset Categories
+    - Assets (Purchase Details, Location, Status)
+    - Asset Allocations
+    - Asset Maintenance
+    - Asset Depreciation
+    - Asset Audits
+    - Asset Tagging
+    - Barcode Tracking
+    - Asset Reports
+
+20. EVENT & CLUB MANAGEMENT
+    - Events
+    - Event Registration
+    - Event Calendar
+    - Event Attendance
+    - Clubs
+    - Club Members
+    - Event Reports
+
+21. ALUMNI MANAGEMENT
+    - Alumni Profiles
+    - Alumni Verification
+    - Alumni Events
+    - Alumni Donations
+    - Job Posts (Alumni Board)
+    - Alumni Networking
+    - Alumni Directory
+    - Alumni Portal
+    - Alumni Reports
+
+22. CERTIFICATE MANAGEMENT
+    - Certificate Types
+    - Certificate Templates
+    - Certificate Generation
+    - Digital Signatures
+    - QR Code Verification
+    - Certificate Verification Portal
+    - Certificate Download (PDF)
+
+23. HEALTH MANAGEMENT
+    - Health Records (Height, Weight, BMI, Vision, Dental)
+    - Vaccination Records
+    - Medicines Inventory
+    - Emergency Contacts
+    - Medical History (Allergies, Conditions)
+    - Health Reports
+
+24. MIS / ANALYTICS & REPORTS
+    - Executive Dashboard
+    - KPI Tracking
+    - Academic Analytics
+    - Financial Analytics
+    - Student Analytics (Demographics, Enrollment, Retention)
+    - Attendance Analytics
+    - AI Predictive Analytics (Performance, Drop-out, Fee Default)
+    - Custom Reports
+    - Scheduled Reports
+    - Report Templates
+
+25. AI INTEGRATION
+    - AI Chat Assistant
+    - AI Performance Prediction
+    - AI Attendance Prediction
+    - AI Fee Defaulter Prediction
+    - AI Report Generator
+    - AI Timetable Generator
+    - AI Analytics Dashboard
+    - AI Recommendation Engine
+    - AI Evaluations
+
+26. WEBSITE / CMS
+    - Custom Pages (Drag-and-Drop Builder)
+    - Custom Page Sections
+    - Homepage Management (Hero, About, Services, Features, Testimonials, FAQ, etc.)
+    - Menu Management (Header, Footer, Mega Menus)
+    - SEO Settings
+    - Theme Customization
+    - Section Manager
+
+27. SYSTEM ADMINISTRATION
+    - Activity Log Viewer
+    - Database Backups (Manual & Automated)
+    - Log Cleanup (Configurable Retention)
+    - Scheduled Tasks (Payroll, Reminders, Backups)
+    - Real-time Broadcasting (WebSockets)
+
+28. REST API (v1)
+    - Full REST API for all modules
+    - Sanctum Token Authentication
+    - API Endpoints for CRUD & Business Logic
+
+TECHNOLOGY STACK
+- Backend: Laravel 13.x, PHP 8.3
+- Database: MySQL
+- Authentication: Laravel Sanctum
+- RBAC: Spatie Laravel-Permission
+- Audit: Spatie Activitylog
+- PDF: Barryvdh DomPDF
+- Real-time: Laravel Broadcasting (WebSockets)
